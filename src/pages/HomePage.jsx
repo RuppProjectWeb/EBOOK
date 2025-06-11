@@ -1,4 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaBookmark, FaHome , FaCog, FaSearch } from 'react-icons/fa';        // Font Awesome
+import { BsBookmark } from 'react-icons/bs';        // Bootstrap
+import { RiBookmarkLine } from 'react-icons/ri'; 
+import { HiMenu } from 'react-icons/hi'; 
+import { FaSignOutAlt } from 'react-icons/fa';
+import { Button } from "flowbite-react";
+
 
 const photos = [
  '../../../public/images/1.jpg',
@@ -32,7 +40,7 @@ function HomePage() {
   return (
     <div className="flex h-screen bg-gray-100 font-sans">
       {/* Sidebar */}
-      <aside className="w-64 bg-white p-6 shadow-lg flex flex-col rounded-r-xl">
+      <aside className="w-64 bg-gray-700 p-6 shadow-lg flex flex-col rounded-r-xl ">
         <div className="flex items-center space-x-3 mb-8">
           <img
             src="https://placehold.co/40x40/4F46E5/FFFFFF?text=L" // Placeholder for profile pic (images2 was undefined)
@@ -40,7 +48,7 @@ function HomePage() {
             className="w-10 h-10 rounded-full object-cover"
           />
           <div>
-            <h2 className="text-lg font-semibold text-gray-800">lao naroth</h2>
+            <h2 className="text-lg font-semibold text-gray-100">lao naroth</h2>
             <p className="text-sm text-gray-500">narothlao@gmail.com</p>
           </div>
         </div>
@@ -48,95 +56,51 @@ function HomePage() {
         {/* Navigation Links */}
         <nav className="flex-1 space-y-4">
           {/* Home Link */}
-          <a
-            href="#"
+          <Link
+            to="/"
             className="flex items-center space-x-3 p-3 rounded-lg bg-indigo-500 text-white shadow-md transition-all duration-200 hover:bg-indigo-600"
           >
             {/* Home Icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6"
-              />
-            </svg>
+            <FaHome/>
             <span>Home</span>
-          </a>
+          </Link>
 
           {/* Menu Link */}
-          <a
-            href="#"
-            className="flex items-center space-x-3 p-3 rounded-lg text-gray-700 hover:bg-gray-200 transition-all duration-200"
+          <Link
+            to="#"
+            className="flex items-center space-x-3 p-3 rounded-lg text-gray-100 hover:bg-gray-200 transition-all duration-200"
           >
             {/* Menu Icon (simplified for brevity) */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+            <HiMenu/>
             <span>Menu</span>
-          </a>
+          </Link>
 
           {/* Book Mark Link */}
-          <a
-            href="#"
-            className="flex items-center space-x-3 p-3 rounded-lg text-gray-700 hover:bg-gray-200 transition-all duration-200"
+          <Link
+            to="/bookmark"
+            className="flex items-center space-x-3 p-3 rounded-lg text-gray-100 hover:bg-gray-200 transition-all duration-200"
           >
             {/* Bookmark Icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-              />
-            </svg>
+            <FaBookmark/>
             <span>Book Mark</span>
-          </a>
+          </Link>
           {/* Setting Link */}
-          <a
-            href="#"
-              className="flex items-center space-x-3 p-3 rounded-lg text-gray-700 hover:bg-gray-200 transition-all duration-200"
+          <Link
+            to="/setting"
+              className="flex items-center space-x-3 p-3 rounded-lg text-gray-100 hover:bg-gray-200 transition-all duration-200"
           >
             {/* Settings Icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10.325 4.317c.504-1.761 2.964-1.761 3.468 0l1.968 6.883a1 1 0 00.95.69h7.028c1.761 0 2.453 2.146 1.09 3.223l-5.6 4.417a1 1 0 00-.365 1.111l2.128 7.085c.504 1.761-1.761 2.964-3.468 0l-5.6-4.417a1 1 0 00-1.111.365l-7.085 2.128c-1.761.504-2.964-1.761 0-3.468l4.417-5.6a1 1 0 00-.365-1.111L.742 7.085c-1.761-.504-1.07-2.738.69-3.223l6.883-1.968a1 1 0 00.69-.95V2.317z"
-              />
-            </svg>
+            <FaCog/>
             <span>Setting</span>
-          </a>
+          </Link>
+          <Link
+            to="/Login"
+              className="flex items-center space-x-3 p-3 rounded-lg text-gray-100 hover:bg-gray-200 transition-all duration-200 mt-[150px]"
+          >
+            {/* Logout */}
+            <FaSignOutAlt />
+            <span>Logout</span>
+          </Link>
         </nav>
       </aside>
 
@@ -151,39 +115,9 @@ function HomePage() {
               className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             {/* Search Icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
+            <FaSearch className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"/>
           </div>
-          <button className="flex items-center space-x-2 bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200">
-            {/* Logout Icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-              />
-            </svg>
-            <span>Log Out</span>
-          </button>
+          <Button className='mr-[400px]' color="alternative">Search</Button>
         </header>
 
         {/* Popular Books Section */}
@@ -243,7 +177,7 @@ const BookCard = ({ book }) => {
     {/* Bottom Tag (e.g., "Native Invisibility") */}
     {book.tag && (
       <div className="px-4 pb-4">
-        <div className="bg-gray-100 rounded-full py-2 text-center font-medium text-gray-700 text-sm">
+        <div className="bg-gray-100 rounded-full py-2 text-center font-medium text-gray-100 text-sm">
           {book.tag}
         </div>
       </div>
