@@ -1,15 +1,17 @@
 import React from 'react'
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
-import { Link } from 'react-router-dom';
 ;
+import register from "../../public/images/register.png"; // Assuming you have an image at this path
+import { Link } from 'react-router-dom';
 
 
 const Register = () => {
   return (
     <div className="flex h-screen items-center justify-center bg-gray-800">
-      <div className="container">
-        <div className="grid grid-cols-1 grid-cols-xl-2">
-          <form className="flex max-w-md flex-col gap-4">
+      <div className="continer w-[75rem] h-[43rem] flex flex-cols items-center  bg-white p-8 rounded-lg shadow-lg jusityfy-between">
+        <div className='bg-orange-500 w-full h-full rounded-lg'>
+          <form className="flex max-w-md flex-col mx-auto gap-4">
+          <h1 className="text-6xl font-bold mt-17  mb-8">Register</h1>
             <div>
               <div className="mb-2 block">
                 <Label htmlFor="email2">Your email</Label>
@@ -37,11 +39,16 @@ const Register = () => {
                 </Link>
               </Label>
             </div>
-            <Button type="submit">Register new account</Button>
+            <Button type="submit" className='cursor-pointer'>Register new account</Button>
+            <Link to="/login" className="text-zinc-300 hover:underline">
+              Already have an account? Login here
+              </Link>
           </form>
         </div>
+        <div className='w-full h-full'>
+         <img src={register} alt="" />
+        </div>
       </div>
-
     </div>
 
   )
