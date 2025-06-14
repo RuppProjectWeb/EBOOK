@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./App.css";
 import { Routes, Route, Navigate, BrowserRouter, Router, Outlet } from "react-router-dom";
@@ -9,6 +10,8 @@ import AdminDashBoard from "./pages/AdminDashBoard";
 import Layout from "./components/rout/Layout";
 import BookMark from "./components/book/BookMark";
 import FileNotFound from "./components/filenotfound/FileNotFound";
+import Dashboard from './pages/Dashboard';
+
 
 function App() {
   return (
@@ -33,14 +36,6 @@ function App() {
         <Route path="/landing" element={<Landing />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route
-          path="/admin"
-          element={
-            <Layout>
-              <AdminDashBoard />
-            </Layout>
-          }
-        />
         <Route path="*" element={<h1><FileNotFound/></h1>} />
       </Routes>
     </>
