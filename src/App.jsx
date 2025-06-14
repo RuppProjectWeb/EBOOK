@@ -16,8 +16,7 @@ import Dashboard from './pages/Dashboard';
 function App() {
   return (
     <>
-
-      Routes>
+      <Routes>
         <Route
           path="/"
           element={

@@ -1,12 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+// import React from 'react';
 import { FaBookmark, FaHome , FaCog, FaSearch } from 'react-icons/fa';        // Font Awesome
-import { BsBookmark } from 'react-icons/bs';        // Bootstrap
-import { RiBookmarkLine } from 'react-icons/ri'; 
-import { HiMenu } from 'react-icons/hi'; 
-import { FaSignOutAlt } from 'react-icons/fa';
+import { BsBookmark, BsBookmarkCheck } from 'react-icons/bs';   
+import { BsBookmarkFill } from 'react-icons/bs';     // Bootstrap
 import { Button } from "flowbite-react";
-import logo from '../../public/images/logo.png'
+import React, { useState } from 'react';
 
 const photos = [
  '../../../public/images/1.jpg',
@@ -121,6 +118,7 @@ function HomePage() {
       isBookmarked: false,
     },
   ];
+
   return (
     <div className="flex h-screen bg-gray-100 font-sans">
       {/* Sidebar */}
@@ -142,7 +140,7 @@ function HomePage() {
         </header>
 
         {/* Popular Books Section */}
-        <section>
+        <section> 
   <h1 className="text-2xl font-bold text-gray-800 mb-6">Popular books</h1>
   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
     {books.map((book) => (
@@ -158,37 +156,38 @@ function HomePage() {
 
 // BookCard Component
 const BookCard = ({ book }) => {
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const toggleBookmark = () => {
+    setIsBookmarked(!isBookmarked);
+  };
   return (
 <div className="bg-white l shadow-sm overflow-hidden w-[200px] mx-auto p-2">
       {/* Book Cover and Bookmark */}
       <div className="relative">
-        <img
-          src={book.cover}
-          alt={book.title}
-          className="w-full h-64 object-cover"
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = `https://placehold.co/160x220/E0E0E0/333?text=${book.title.replace(/ /g, '+')}`;
-          }}
-        />
-        {/* Bookmark Icon */}
-        <button className="absolute top-2 right-2 bg-white p-1.5 rounded-full shadow-md text-gray-700 hover:text-indigo-500 transition-colors">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-            />
-          </svg>
-        </button>
-      </div>
+      <img
+        src={book.cover}
+        alt={book.title}
+        className="w-full h-64 object-cover"
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = `https://placehold.co/160x220/E0E0E0/333?text=${book.title.replace(/ /g, '+')}`;
+        }}
+      />
+      
+      {/* Bookmark Button */}
+      <button
+        onClick={toggleBookmark}
+        className={`absolute top-2 right-2 p-1.5 rounded-full shadow-md transition-all duration-200 ${
+          isBookmarked
+            ? 'bg-indigo-100 text-indigo-500'
+            : 'bg-white text-gray-700 hover:text-indigo-500'
+        }`}
+        aria-label={isBookmarked ? 'Remove bookmark' : 'Add bookmark'}
+      >
+        {isBookmarked ? <BsBookmarkFill /> : <BsBookmark />}
+      </button>
+    </div>
 
       {/* Title and Author */}
       <div className="p-2 text-center">
@@ -198,7 +197,7 @@ const BookCard = ({ book }) => {
 
       {/* Tag */}
       <div className="px-3 pb-3">
-        <span className="block w-full bg-gray-100 text-gray-700 text-[13px] font-medium text-center py-1 rounded-md">
+        <span className="block w-full bg-gray-300 text-gray-700 text-[13px] font-medium text-center py-1 rounded-md">
           {book.tag}
         </span>
       </div>

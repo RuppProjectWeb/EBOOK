@@ -37,7 +37,7 @@ function Sidebar() {
           <NavLink
             to="/menu"
             className={({ isActive }) =>
-              `flex items-center space-x-3 p-3 rounded-full transition-all duration-200 ${
+              `flex items-center space-x-3 p-3 rounded-full font-medium shadow-md transition-all duration-200 ${
                 isActive
                   ? "bg-gray-300 text-gray-900"
                   : "text-gray-300 hover:bg-slate-700 hover:text-white"
@@ -53,7 +53,7 @@ function Sidebar() {
           <NavLink
             to="/bookmark"
             className={({ isActive }) =>
-              `flex items-center space-x-3 p-3 rounded-full transition-all duration-200 ${
+              `flex items-center space-x-3 p-3 rounded-full font-medium shadow-md transition-all duration-200 ${
                 isActive
                   ? "bg-gray-300 text-gray-900"
                   : "text-gray-300 hover:bg-slate-700 hover:text-white"
@@ -69,7 +69,7 @@ function Sidebar() {
           <NavLink
             to="/setting"
             className={({ isActive }) =>
-              `flex items-center space-x-3 p-3 rounded-full transition-all duration-200 ${
+              `flex items-center space-x-3 p-3 rounded-full font-medium shadow-md transition-all duration-200 ${
                 isActive
                   ? "bg-gray-300 text-gray-900"
                   : "text-gray-300 hover:bg-slate-700 hover:text-white"
