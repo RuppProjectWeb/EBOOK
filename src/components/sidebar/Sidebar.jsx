@@ -1,6 +1,7 @@
 import React from "react";
 import { Link , NavLink } from 'react-router-dom';
-import { FaBookmark, FaHome , FaCog, FaSearch } from 'react-icons/fa';  
+import { FaBookmark, FaHome , FaCog, FaSearch } from 'react-icons/fa';
+import { BiCategoryAlt } from "react-icons/bi";  
 import { Button } from "flowbite-react";
 import logo from '../../../public/images/logo.png'
 function Sidebar() {
@@ -35,22 +36,6 @@ function Sidebar() {
           </NavLink>
 
           <NavLink
-            to="/menu"
-            className={({ isActive }) =>
-              `flex items-center space-x-3 p-3 rounded-full font-medium shadow-md transition-all duration-200 ${
-                isActive
-                  ? "bg-gray-300 text-gray-900"
-                  : "text-gray-300 hover:bg-slate-700 hover:text-white"
-              }`
-            }
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-              <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
-            </svg>
-            <span>Menu</span>
-          </NavLink>
-
-          <NavLink
             to="/bookmark"
             className={({ isActive }) =>
               `flex items-center space-x-3 p-3 rounded-full font-medium shadow-md transition-all duration-200 ${
@@ -67,7 +52,7 @@ function Sidebar() {
           </NavLink>
 
           <NavLink
-            to="/setting"
+            to="/Catagary"
             className={({ isActive }) =>
               `flex items-center space-x-3 p-3 rounded-full font-medium shadow-md transition-all duration-200 ${
                 isActive
@@ -76,10 +61,34 @@ function Sidebar() {
               }`
             }
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-              <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.09-.76-1.71-1.05L14.46 2.5c-.05-.24-.27-.42-.5-.42h-4c-.23 0-.45.18-.5.42l-.36 2.57c-.62.29-1.19.65-1.71 1.05l-2.49-1c-.22-.08-.49 0-.61.22l-2 3.46c-.12.22-.07.49.12.64l2.11 1.65c-.04.32-.07.64-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.09.76 1.71 1.05l.36 2.57c.05.24.27.42.5.42h4c.23 0 .45-.18.5-.42l.36-2.57c.62-.29 1.19-.65 1.71-1.05l2.49 1c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" />
-            </svg>
-            <span>Setting</span>
+            <BiCategoryAlt/>
+            <span>Catagory</span>
+          </NavLink>
+          <NavLink
+            to="/Catagary"
+            className={({ isActive }) =>
+              `flex items-center space-x-3 p-3 rounded-full font-medium shadow-md transition-all duration-200 ${
+                isActive
+                  ? "bg-gray-300 text-gray-900"
+                  : "text-gray-300 hover:bg-slate-700 hover:text-white"
+              }`
+            }
+          >
+            <BiCategoryAlt/>
+            <span>Admin book</span>
+          </NavLink>
+          <NavLink
+            to="/Catagary"
+            className={({ isActive }) =>
+              `flex items-center space-x-3 p-3 rounded-full font-medium shadow-md transition-all duration-200 ${
+                isActive
+                  ? "bg-gray-300 text-gray-900"
+                  : "text-gray-300 hover:bg-slate-700 hover:text-white"
+              }`
+            }
+          >
+            <BiCategoryAlt/>
+            <span>User</span>
           </NavLink>
 
           <NavLink
